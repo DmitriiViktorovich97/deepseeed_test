@@ -1,0 +1,176 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  width: 100%;
+}
+
+body {
+  min-width: 320px;
+  background: #111;
+  color: #eee;
+  font-family: Arial, sans-serif;
+}
+
+button,
+textarea {
+  font: inherit;
+}
+
+button:focus-visible,
+textarea:focus-visible {
+  outline: none;
+}
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  width: min(900px, 100%);
+  height: 100vh;
+  margin: 0 auto;
+  background: #181818;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid #2d2d2d;
+}
+
+.chat-header h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.chat-header span {
+  color: #888;
+  font-size: 13px;
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  color: #888;
+}
+
+.empty-state h2 {
+  margin: 0 0 8px;
+  color: #eee;
+}
+
+.empty-state p {
+  margin: 0;
+}
+
+.message {
+  max-width: 75%;
+  margin-bottom: 20px;
+}
+
+.message.user {
+  margin-left: auto;
+}
+
+.message.assistant {
+  margin-right: auto;
+}
+
+.message-role {
+  margin-bottom: 6px;
+  color: #777;
+  font-size: 12px;
+}
+
+.message-content {
+  padding: 12px 15px;
+  border-radius: 10px;
+  background: #252525;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.message.user .message-content {
+  background: #303030;
+}
+
+.composer {
+  padding: 16px 24px 24px;
+  border-top: 1px solid #2d2d2d;
+}
+
+.composer textarea {
+  display: block;
+  width: 100%;
+  resize: none;
+  padding: 12px;
+  border: 1px solid #3a3a3a;
+  border-radius: 8px;
+  background: #111;
+  color: #eee;
+}
+
+.composer textarea::placeholder {
+  color: #666;
+}
+
+.composer-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.composer-footer span {
+  color: #666;
+  font-size: 12px;
+}
+
+.composer button {
+  min-width: 80px;
+  padding: 9px 16px;
+  border: 0;
+  border-radius: 7px;
+  background: #eee;
+  color: #111;
+  cursor: pointer;
+}
+
+.composer button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+@media (max-width: 600px) {
+  .chat-header,
+  .messages,
+  .composer {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .message {
+    max-width: 90%;
+  }
+
+  .composer-footer span {
+    display: none;
+  }
+}
